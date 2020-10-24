@@ -64,4 +64,4 @@ class Inventario(models.Model):
         ordering: ['devolucion']
     
     def __str__(self):
-        return f'{self.libro.titulo}'
+        return f'{self.id} ({self.libro.titulo})'
