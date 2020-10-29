@@ -23,7 +23,7 @@ class Autor(models.Model):
         return f'{self.apellido}, {self.nombre}'
 
     def get_absolute_url(self):
-        return reverse("autor-detalle", args=[str(self.id)])
+        return reverse("autor-detail", args=[str(self.id)])
     
 
 class Libro(models.Model):
@@ -37,7 +37,8 @@ class Libro(models.Model):
         return self.titulo
     
     def get_absolute_url(self):
-        return reverse("libro-detalle", args=[str(self.id)])
+        return reverse("libro-detail", args=[str(self.id)])
+
 
 class Idioma(models.Model):
     nombre = models.CharField(max_length=50, help_text='Ingrese el idioma del libro (Ej. Español)')
