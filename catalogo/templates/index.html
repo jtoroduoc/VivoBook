@@ -1,4 +1,5 @@
 {% extends 'base_generica.html' %} 
+{% load static %}
 
 {% block content %} 
 <h1>VivoBook :: Inicio</h1>
@@ -12,6 +13,7 @@
     <li><strong>Copias Disponibles: </strong>{{numero_inventario_disponible}}</li>
     <li><strong>Autores: </strong>{{numero_autores}}</li>
 </ul>
-{% load static %}
+<p>Ha visitado esta página {{numero_visitas}}{% if numero_visitas == 1%} vez {% else %} veces {% endif %}</p>
+
 <img src="{% static 'img/banner.png' %}" class="img-fluid">
 {% endblock %}

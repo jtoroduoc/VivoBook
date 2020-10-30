@@ -26,3 +26,7 @@ urlpatterns = [
     path('catalogo/', include('catalogo.urls')),
     path('', RedirectView.as_view(url='catalogo/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
