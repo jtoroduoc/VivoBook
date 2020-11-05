@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
-from django.db.models.fields import CharField
 from django.urls import reverse
+from django.conf import settings
 
 # Create your models here.
 class Genero(models.Model):
@@ -32,6 +32,7 @@ class Libro(models.Model):
     resumen = models.TextField(max_length=1000, help_text='Ingresa una breve descripción del libro')
     isbn = models.CharField('ISBN', max_length=13, help_text='13 caracteres <a href="https://www.isbn-international.org/es/content/%C2%BFqu%C3%A9-es-un-isbn">número ISBN</a>')
     genero = models.ManyToManyField(Genero, help_text='Seleccione un genero para este libro')
+    foto = models.ImageField(upload_to='images')
 
     def __str__(self):
         return self.titulo

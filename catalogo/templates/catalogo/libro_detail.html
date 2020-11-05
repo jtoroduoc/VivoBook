@@ -1,11 +1,21 @@
 {% extends 'base_generica.html' %}
 {% block content %}
+<div class="container-fluid">
     <h1>Titulo: {{libro.titulo}}</h1>
-    <p><strong>Autor: </strong><a href="">{{libro.autor}}</a></p>
-    <p><strong>Resumen: </strong>{{libro.resumen}}</p>
-    <p><strong>ISBN: </strong>{{libro.isbn}}</p>
-    <p><strong>Genero: </strong>{% for genero in libro.genero.all %}{{ genero }}{% if not forloop.last %},{% endif %}{% endfor %}</p>
-
+    <div class="row">
+        <div class="col-sm-1">
+            <div class="img-thumbnail">
+                <img src="{{libro.foto.url}}" width="100px" height="100px">
+            </div>
+        </div>
+        <div class="col-sm-11">
+            <p><strong>Autor: </strong><a href="">{{libro.autor}}</a></p>
+            <p><strong>Resumen: </strong>{{libro.resumen}}</p>
+            <p><strong>ISBN: </strong>{{libro.isbn}}</p>
+            <p><strong>Genero: </strong>{% for genero in libro.genero.all %}{{ genero }}{% if not forloop.last %},{% endif %}{% endfor %}</p>
+        </div>
+    
+    
     <div style="margin-left: 20px; margin-top: 20px;">
         <h4>Copias</h4>
         {% for copia in libro.inventario_set.all %}
