@@ -1,0 +1,22 @@
+{% extends 'base_generica.html' %}
+{% block content %}
+<div class="container-fluid">
+    <h1>Autor: {{ autor }}</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <p><strong>Nombre: </strong>{{autor.nombre}}</p>
+            <p><strong>Apellido: </strong>{{autor.apellido}}</p>
+            <p><strong>Fecha Nacimiento: </strong>{{autor.fecha_nacimiento}}</p>
+            <p><strong>Fecha Fallecimiento: </strong>{{autor.fecha_muerte}}</p>
+        </div>
+
+        <div style="margin-left: 20px; margin-top: 20px;">
+            <h4>Libros</h4>
+            <ul>
+            {% for libro in autor.libro_set.all %}
+                <li><a href="{{libro.get_absolute_url}}">{{ libro.titulo }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

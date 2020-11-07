@@ -1,4 +1,5 @@
 from django.contrib.admin import autodiscover
+from django.db import models
 from django.shortcuts import render
 from .models import Libro, Inventario, Autor
 from django.views import generic
@@ -30,4 +31,10 @@ class LibroListView(generic.ListView):
 
 class LibroDetailView(generic.DetailView):
     model = Libro
+
+class AutorListView(generic.ListView):
+    model = Autor
+
+class AutorDetailView(generic.DetailView):
+    model = Autor
 
